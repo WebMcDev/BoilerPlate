@@ -1,0 +1,71 @@
+/*
+ This file contains all boiler plate SCSS
+ for functional purposes only
+ */
+@media all and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: none;
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    display: block;
+  }
+  .navbar .nav-item .dropdown-menu {
+    margin-top: 0;
+  }
+}
+@media all and (max-width: 992px) {
+  nav ul.dropdown-menu {
+    display: block;
+    border: none;
+  }
+}
+body.logged-in nav.fixed-top {
+  margin-top: 32px;
+}
+body.logged-in .page-container {
+  margin-top: 55px;
+  min-height: calc(100vh - 125px);
+}
+body .page-container {
+  margin-top: 55px;
+  min-height: calc(100vh - 95px);
+}
+nav {
+  background: white;
+}
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+}
+.navbar-toggler:hover {
+  background: transparent !important;
+}
+.navbar-toggler .icon-bar {
+  width: 22px;
+  transition: all 0.2s;
+  background: black;
+  height: 3px;
+  display: block;
+  border-radius: 8px;
+  margin: 3px 0px;
+}
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
