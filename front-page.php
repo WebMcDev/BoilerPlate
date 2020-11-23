@@ -1,10 +1,11 @@
 <?php get_header(); ?>
 
+<?php get_template_part('template-parts/content', 'hero'); ?>
+
 <div class="container">
     <div class="row">
         <div class="col">
             <?php 
-            the_title(); 
             the_content();
             ?>
         </div>

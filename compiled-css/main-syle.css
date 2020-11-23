@@ -2,6 +2,10 @@
  This file contains all boiler plate SCSS
  for functional purposes only
  */
+img {
+  max-width: 100vw;
+  height: auto;
+}
 @media all and (min-width: 992px) {
   .navbar .nav-item .dropdown-menu {
     display: none;
@@ -68,4 +72,14 @@ nav {
 }
 .navbar-toggler.collapsed .bottom-bar {
   transform: rotate(0);
+}
+.hero-image {
+  margin-bottom: 50px;
+}
+.hero-image .overlay {
+  padding: 150px 0px;
+  background: rgba(0, 0, 0, .5);
+}
+.hero-image h1 {
+  color: white;
 }
