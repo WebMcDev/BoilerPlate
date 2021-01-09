@@ -2,5 +2,6 @@
     <input type="text" class="search-field" name="s" placeholder="Search" value="<?php echo get_search_query(); ?>">
     <button type="submit" value="Search" title="Search" alt="Search">
         <span class="dashicons dashicons-search"></span>
-    </button>
+<!--		<i class="fas fa-search"></i>-->
+     </button>
 </form>
