@@ -134,6 +134,6 @@ add_action( 'admin_menu', 'remove_menus' );
 
 // Turn on Google Maps in ACF
 //function my_acf_init() {
-//    acf_update_setting('google_api_key', 'AIzaSyBdg4uO6ieSRKp6hVHKHQ9oXnCKiWl_NeQ');
+//    acf_update_setting('google_api_key', 'Google API Key');
 //}
 //add_action('acf/init', 'my_acf_init');
