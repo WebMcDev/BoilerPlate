@@ -1,4 +1,14 @@
-# BoilerPlate
-A default theme for any new WordPress project (<a href="https://developer.wordpress.org/themes/getting-started/" target="_blank">WP themeing Docs here</a>), Using <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap 5</a>, includes <a href="https://www.advancedcustomfields.com/resources/" target="_blank">Advanced Custom Fields Pro</a>, <a href="https://kenwheeler.github.io/slick/" target="_blank">Slick Slider</a>, and <a href="https://fontawesome.com/icons?d=gallery" target="_blank">FontAwesome Pro</a>
+# wp-boilerplate
+CHC Theme for WordPress Builds
 
-Reupload the New Theme to GitHub, and use GutHub Updater ( https://github.com/afragen/github-updater ) to install on WordPress
+Welcome to the base theme for all future WordPress projects!
+
+This theme will include all basic pages and compontents of a site, and below you'll find a list of resources and documention on how to use this theme
+
+This is a base theme and shouldn't be directly edited if used on another prject or for another client; to use this theme for another project start by duplicating it and changing the theme name to CHCTheme-[CLIENT-NAME or CAT#]
+
+Themeing documentation: 
+https://codex.wordpress.org/Theme_Development
+
+This theme uses Skeleton Grid as a base:
+http://getskeleton.com/

@@ -1,13 +1,16 @@
-<?php get_header(); ?>
+<?php get_header();
 
-<?php get_template_part('template-parts/content', 'hero'); ?>
+$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); ?>
 
-<div class="container-lg">
+<div class="container">
     <div class="row">
         <div class="col">
-            <?php 
-            the_content();
-            ?>
+            <div class="page-content">
+                <?php 
+                $current_page = get_queried_object();
+                $content = apply_filters( 'the_content', $current_page->post_content );
+                echo $content; ?>
+            </div>
         </div>
     </div>
 </div>

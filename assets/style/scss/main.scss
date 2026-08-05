@@ -1,0 +1,139 @@
+$color_1: #002F32;
+$color_2: #fff;
+$background-color_1: #4f4f4f;
+$background-color_2: #035C67;
+
+body {
+	color: #333333;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+a {
+	transition: all .2s;
+	&:hover {
+		transition: all .2s;
+	}
+}
+button {
+	transition: all .2s;
+	&:hover {
+		transition: all .2s;
+	}
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Value Serif Bold", serif;
+    color: #110081;
+    font-weight: 600;
+}
+h1 {
+    font-size: 72px;
+    letter-spacing: -1px;
+    line-height: 72px;
+}
+h2 {
+    font-size: 48px;
+    letter-spacing: -.4px;
+    line-height: 48px;
+}
+h3 {
+    font-size: 36px;
+    letter-spacing: -.2px;
+    line-height: 40px;
+}
+h4 {
+    font-size: 28px;
+    letter-spacing: -.1px;
+    line-height: 34px;
+}
+h5 {
+    font-size: 22px;
+    letter-spacing: 0px;
+    line-height: 30px;
+}
+p  {
+    font-family: “Value Sans”, sans-serif;
+    color: #333333;
+    font-size: 16px;
+   line-height: 22px;
+    letter-spacing: .25px;
+}
+@media (min-width:991px) {
+	h1 {
+		font-size: 48px;
+		line-height: 48px;
+	}
+	h2 {
+		font-size: 36px;
+		line-height: 40px;
+	}
+	h3 {
+		font-size: 28px;
+		line-height: 34px;
+	}
+	h4 {
+		font-size: 22px;
+		line-height: 30px;
+	}
+	h5 {
+		font-size: 20px;
+		line-height: 28px;
+	}
+}
+@media (min-width:767px) {
+	h1 {
+		font-size: 36px;
+		line-height: 40px;
+	}
+	h2 {
+		font-size: 32px;
+		line-height: 36px;
+	}
+}
+
+.navbar-toggler {
+	span {
+		display: block;
+		background-color: #333333;
+		height: 3px;
+		width: 25px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		position: relative;
+		left: 0;
+		opacity: 1;
+		transition: all 0.35s ease-out;
+		transform-origin: center left;
+		&:nth-child(1) {
+			transform: translate(0%, 0%) rotate(0deg);
+			margin-top: 0.3em;
+		}
+		&:nth-child(2) {
+			opacity: 1;
+		}
+		&:nth-child(3) {
+			transform: translate(0%, 0%) rotate(0deg);
+		}
+	}
+	&:not(.collapsed) {
+		span {
+			&:nth-child(1) {
+				transform: translate(15%, -33%) rotate(45deg);
+			}
+			&:nth-child(2) {
+				opacity: 0;
+			}
+			&:nth-child(3) {
+				transform: translate(15%, 33%) rotate(-45deg);
+			}
+		}
+	}
+}
+footer {
+	color: $color_2;
+	background-color: $background-color_2;
+	padding: 150px 0px;
+	text-align: center;
+}
