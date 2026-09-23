@@ -40,7 +40,7 @@ if($host == "www.DOMAINNAME.com" or $host == "DOMAINNAME.com") { ?>
               <span class="icon-bar bottom-bar"></span>
             </button>
               
-<!--              dynamic menu-->
+<!--        dynamic menu-->
             <?php 
                 wp_nav_menu( array(
                     'theme_location'  => 'primary',
@@ -53,36 +53,6 @@ if($host == "www.DOMAINNAME.com" or $host == "DOMAINNAME.com") { ?>
                     'walker'          => new WP_Bootstrap_Navwalker(),
                 ) ); 
             ?>
-              
-<!--              manual menu-->
-<!--
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Contact Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Filter by
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">Archived Issues</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">Search</a>
-                </li>
-              </ul>
-            </div>
--->
-              
-              
           </div>
         </nav>
 
