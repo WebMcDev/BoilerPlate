@@ -10,5 +10,3 @@ This is a base theme and shouldn't be directly edited if used on another prject 
 Themeing documentation: 
 https://codex.wordpress.org/Theme_Development
 
-This theme uses Skeleton Grid as a base:
-http://getskeleton.com/
