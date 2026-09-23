@@ -1,139 +1,159 @@
-<?php
-
-require_once get_template_directory() . '/inc/php/class-tgm-plugin-activation.php';
-require_once get_template_directory() . '/inc/php/required-plugins.php';
-
-function my_scripts() {
-	// Bootstrap
-    wp_enqueue_style('bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css');
-    wp_enqueue_script( 'boot5-js','https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js','','',true );
-	
-	//Slick Slider
-	wp_enqueue_style( 'slick-css',  get_stylesheet_directory_uri() . '/inc/slick/slick.css', array());
-	wp_enqueue_style( 'slick-theme-css',  get_stylesheet_directory_uri() . '/inc/slick/slick-theme.css' );
-	wp_enqueue_script( 'slick-js',  get_stylesheet_directory_uri() . '/inc/slick/slick.js', array( 'jquery' ), '1.8.4', TRUE );
-	wp_enqueue_script( 'slick-init',   get_stylesheet_directory_uri() . '/inc/js/slick-init.js', array( 'slick-js' ), '1.0.0',  TRUE );
-	
-	//FontAwesome
-	wp_enqueue_script( 'FontAwesome','https://kit.fontawesome.com/7baefe520e.js','','', FALSE );
-	
-	//Theme JS
-	wp_enqueue_script( 'boilerplate-js',  get_stylesheet_directory_uri() . '/inc/js/boilerplate.js', array('jquery'), '1.0.0', TRUE );
-	
-    wp_enqueue_style( 'dashicons' );
-	
-	//Ajax Loads file
-	wp_enqueue_script('ajax-trigger', get_template_directory_uri() . '/inc/js/ajax-trigger.js', array('jquery'), NULL, true);
+<?php 
+/**
+* Enqueue scripts and styles
+*/
+function your_theme_enqueue_scripts() {
+    //slick slider
+    wp_enqueue_script( 'slick-js', '//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js', 'jquery', '1.4.1' );
+    wp_enqueue_script( 'init-js', get_stylesheet_directory_uri() . '/assets/js/main.js', 'jquery', 1.0 );
+    wp_enqueue_style( 'slick-css', '//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css', '', '1.4.1' );
     
-    wp_localize_script( 'ajax-trigger', 'wp_ajax',
-        array(
-            'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX
-            'posts' => json_encode( $loop->query_vars ), // everything about your loop is here
-            'current_page' => $loop->query_vars['paged'] ? $loop->query_vars['paged'] : 1,
-            'max_page' => $loop->max_num_pages
-        )
-    );
+    // boostrap
+    wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', array(), 1 );
+    wp_enqueue_script( 'bootstrap-script', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', array('jquery'), '', true );
+//    wp_enqueue_script( 'popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js', array('jquery'), '', true );
+    
+    wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/assets/style/compiled-css/main.css', array(), '2.0' );
+    wp_enqueue_style( 'themeColors', get_stylesheet_directory_uri() . '/assets/style/compiled-css/theme-colors.css', array(), '1.0' );
 }
-add_action( 'wp_enqueue_scripts', 'my_scripts' );
+add_action( 'wp_enqueue_scripts', 'your_theme_enqueue_scripts' );
 
-add_action( 'wp_ajax_nopriv_filter', 'filter_ajax' );
-add_action( 'wp_ajax_filter', 'filter_ajax' );
+add_theme_support( 'post-thumbnails' );
+add_theme_support( 'custom-logo' );
 
-require_once get_template_directory() . '/inc/php/ajax-load.php';
-
-
-function register_my_menus() {
-  register_nav_menus(
+register_nav_menus(
     array(
-      'header-menu' => __( 'Header Menu' )
-     )
-   );
- }
- add_action( 'init', 'register_my_menus' );
+        'primary' => esc_html__( 'Primary menu', 'chcboilerplate' ),
+    )
+);
+
+function mytheme_setup_theme_supported_features() {
+    add_theme_support( 'editor-color-palette', array(
+        array(
+            'name'  => esc_attr__( 'Navy', 'producer' ),
+            'slug'  => 'cigna-navy',
+            'color' => '#110081',
+        ),
+        array(
+            'name'  => esc_attr__( 'Action Blue', 'producer' ),
+            'slug'  => 'action-blue',
+            'color' => '#0033FF',
+        ),
+        array(
+            'name'  => esc_attr__( 'Hypermint', 'producer' ),
+            'slug'  => 'hypermint',
+            'color' => '#3EFFC0',
+        ),
+        array(
+            'name'  => esc_attr__( 'Mediumint', 'producer' ),
+            'slug'  => 'mediumint',
+            'color' => '#008F83',
+        ),
+        array(
+            'name'  => esc_attr__( 'Tempermint', 'producer' ),
+            'slug'  => 'tempermint',
+            'color' => '#035C67',
+        ),
+        array(
+            'name'  => esc_attr__( 'Dark Mint', 'producer' ),
+            'slug'  => 'dark-mint',
+            'color' => '#002F32',
+        ),
+        array(
+            'name'  => esc_attr__( 'Light Leaf Green', 'producer' ),
+            'slug'  => 'light-green',
+            'color' => '#E6FAEE',
+        ),
+        array(
+            'name'  => esc_attr__( 'Leaf Green', 'producer' ),
+            'slug'  => 'leaf-green',
+            'color' => '#03cc54',
+        ),
+        array(
+            'name'  => esc_attr__( 'Dark Leaf Green', 'producer' ),
+            'slug'  => 'dark-green',
+            'color' => '#00874D',
+        ),
+        array(
+            'name'  => esc_attr__( 'Light Orange', 'producer' ),
+            'slug'  => 'light-orange',
+            'color' => '#FACFBD',
+        ),
+        array(
+            'name'  => esc_attr__( 'Orange', 'producer' ),
+            'slug'  => 'chc-orange',
+            'color' => '#faa163',
+        ),
+        array(
+            'name'  => esc_attr__( 'Dark Orange', 'producer' ),
+            'slug'  => 'dark-orange',
+            'color' => '#ff4d00',
+        ),
+        array(
+            'name'  => esc_attr__( 'Black', 'producer' ),
+            'slug'  => 'black',
+            'color' => '#000000',
+        ),
+        array(
+            'name'  => esc_attr__( 'Digital Gray', 'producer' ),
+            'slug'  => 'digital-gray',
+            'color' => '#333333',
+        ),
+        array(
+            'name'  => esc_attr__( 'Cool Gray', 'producer' ),
+            'slug'  => 'cool-gray',
+            'color' => '#f4f4f4',
+        ),
+        array(
+            'name'  => esc_attr__( 'Champagne', 'producer' ),
+            'slug'  => 'champagne',
+            'color' => '#EDEBE7',
+        ),
+        array(
+            'name'  => esc_attr__( 'White', 'producer' ),
+            'slug'  => 'white',
+            'color' => '#ffffff',
+        ),
+    ) );
+}
+add_action( 'after_setup_theme', 'mytheme_setup_theme_supported_features' );
 
 function register_navwalker(){
-	require_once get_template_directory() . '/inc/wp-bootstrap-navwalker-master/class-wp-bootstrap-navwalker.php';
+	require_once get_template_directory() . '/assets/php/class-wp-bootstrap-navwalker.php';
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
 
-add_theme_support( 'custom-logo' );
-add_theme_support( 'post-thumbnails' );
-
-// REMOVE COMMENTS
-add_action('admin_init', function () {
-    // Redirect any user trying to access comments page
-    global $pagenow;
-    
-    if ($pagenow === 'edit-comments.php') {
-        wp_redirect(admin_url());
-        exit;
-    }
-
-    // Remove comments metabox from dashboard
-    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
-
-    // Disable support for comments and trackbacks in post types
-    foreach (get_post_types() as $post_type) {
-        if (post_type_supports($post_type, 'comments')) {
-            remove_post_type_support($post_type, 'comments');
-            remove_post_type_support($post_type, 'trackbacks');
+function my_gettext_hook_function( $translated_text, $text, $domain ) {
+    if ('ws-form-user' === $domain) {
+        switch ( $text ) {
+            case 'Incorrect password.':
+                $translated_text = 'The email address or password entered is incorrect. Please try again.';
+                break;
+            case 'Invalid email address.':
+                $translated_text = 'The email address or password entered is incorrect. Please try again.';
+                break;
         }
     }
-});
-
-// Close comments on the front-end
-add_filter('comments_open', '__return_false', 20, 2);
-add_filter('pings_open', '__return_false', 20, 2);
-
-
-
-// Remove items in menu
-function remove_menus() {
-//	remove_menu_page( 'index.php' );                  //Dashboard
-//	remove_menu_page( 'jetpack' );                    //Jetpack* 
-//	remove_menu_page( 'edit.php' );                   //Posts
-//	remove_menu_page( 'upload.php' );                 //Media
-//	remove_menu_page( 'edit.php?post_type=page' );    //Pages
-	remove_menu_page( 'edit-comments.php' );          //Comments
-//	remove_menu_page( 'themes.php' );                 //Appearance
-//	remove_menu_page( 'plugins.php' );                //Plugins
-//	remove_menu_page( 'users.php' );                  //Users
-//	remove_menu_page( 'tools.php' );                  //Tools
-//	remove_menu_page( 'options-general.php' );        //Settings
+    return $translated_text;
 }
-add_action( 'admin_menu', 'remove_menus' );
+add_filter( 'gettext', 'my_gettext_hook_function', 20, 3 );
 
-// Create Global 'Options' page for ACF -- 
-// read more here: 
-// https://www.advancedcustomfields.com/resources/acf_add_options_page/
-//add_action('acf/init', 'my_acf_op_init');
-//function my_acf_op_init() {
-//
-//    // Check function exists.
-//    if( function_exists('acf_add_options_page') ) {
-//		  // Basic Page
-//        acf_add_options_page();
-//
-//        // Register options page with custom settings
-//        $option_page = acf_add_options_page(array(
-//            'page_title'      => __('Theme General Settings'),
-//            'menu_title'      => __('Theme Settings'),
-//            'menu_slug'       => 'theme-general-settings',
-//            'capability'      => 'edit_posts',
-//            'redirect'        => false,
-//            'autoload'        => true,
-//			  'position'        => '',
-//			  'icon_url'        => '',
-//			  'post_id'         => 'options',
-//			  'update_button'   => __('Update', 'acf'),
-//			  'updated_message' => __("Options Updated", 'acf')
-//        ));
-//    }
-//}
+function theme_register_acf_blocks() {
+    /**
+     * We register our block's with WordPress's handy
+     * register_block_type();
+     *
+     * @link https://developer.wordpress.org/reference/functions/register_block_type/
+     */
+    register_block_type( __DIR__ . '/blocks/hero' );
+}
+// Here we call our theme_register_acf_block() function on init.
+add_action( 'init', 'theme_register_acf_blocks' );
 
-
-// Turn on Google Maps in ACF
-//function my_acf_init() {
-//    acf_update_setting('google_api_key', 'Google API Key');
-//}
-//add_action('acf/init', 'my_acf_init');
+add_action( 'template_redirect', 'redirect_404_to_homepage' );
+    function redirect_404_to_homepage() {
+        if ( is_404() ) {
+            wp_safe_redirect( home_url( '/' ) );
+            exit();
+        }
+    }
